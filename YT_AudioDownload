@@ -1,0 +1,19 @@
+
+# This program uses pytube library to download YouTube videos in audio/video format
+
+
+from pytube import YouTube
+
+vids = ['RPNFbL3Y8oU', '6qTghUgMOeY', 'XOCZ1KqRnPc']
+
+for i in range(len(vids)):
+    vid_url = 'https://www.youtube.com/watch?v=' + vids[i]
+
+    try:
+        yt = YouTube(vid_url)
+        yt.streams.get_audio_only().download(output_path=r'C:\Users\username\Downloads\YT', filename_prefix='')
+        print('YT audios downloaded successfully')
+    except Exception as e:
+        print(e)
+
+
